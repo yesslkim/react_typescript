@@ -6,15 +6,17 @@ type GreetProps = {
   name: string
   messageCount: number
   isLoggedIn: boolean
+  optional?: string //props의 값이 필수사항이 아닌 경우 `?` 입력시 선택사항으로 바뀌어 props를 전달하지 않아도 오류가 뜨지 않음.
 }
 
 const Greet = (props: GreetProps) => { 
+  const {optional = "선택하지않음"} = props // 선택사항 값의 경우 기본값을 설정할 수 있음.
   return (
     <div>
       {
         props.isLoggedIn ? 
-          `<h2>Welcome to ${props.name}! You have ${props.messageCount} unread message</h2>` :
-          `Welcome Guest!`
+          `<h2>Welcome to ${props.name}! You have ${props.messageCount} unread message. 옵션으로는 ${optional}을/를 선택했습니다.</h2>` :
+          `Welcome Guest! 옵션으로는 ${optional}을/를 선택했습니다.`
       }
       
     </div>

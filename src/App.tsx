@@ -4,6 +4,9 @@ import './App.css';
 import Greet from './components/Greet';
 import Person from './components/Person';
 import PersonList from './components/PersonList';
+import Status from './components/Status';
+import Heading from './components/Heading';
+import Oscar from './components/Oscar';
 
 function App() {
   const personName = {
@@ -29,9 +32,15 @@ function App() {
 
   return (
     <div className="App">
-      <Greet name="studyroom" messageCount={20} isLoggedIn={false} />
+      <Heading>Hello world!</Heading>
+      <Oscar>
+        <Heading> Oscar goes to someone!</Heading>
+      </Oscar>
+      <Greet name="studyroom" messageCount={20} isLoggedIn={false}/>
       <Person name={personName} />
-      <PersonList names={nameList}/>
+      <PersonList names={nameList} />
+      <Status status='error' />
+      <Greet name="studyroom" messageCount={20} isLoggedIn={false} optional="옵션사항"/>
     </div>
   );
 }
